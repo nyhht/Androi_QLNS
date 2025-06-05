@@ -2,10 +2,6 @@
 **App Quản lý nhân sự** là một dự án bài tập lớn môn androi được viết dựa trên java kết hợp Androi Studio
 
 # **Nhóm phát triển**
-Nhóm Androi_QLNS
-App Quản lý nhân sự là một dự án bài tập lớn môn androi được viết dựa trên java kết hợp Androi Studio
-
-# **Nhóm phát triển**
 -Nhóm 13 lớp 64HTTT1
 -Thành viên:
   + Nguyễn Yên Hiếu
