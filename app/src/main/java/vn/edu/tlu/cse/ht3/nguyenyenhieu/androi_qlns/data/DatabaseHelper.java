@@ -8,6 +8,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 import java.util.ArrayList;
 import java.util.List;
 
+import vn.edu.tlu.cse.ht3.nguyenyenhieu.androi_qlns.models.LeaveRequest; // Thêm import này
+
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "company_app.db";
@@ -86,6 +88,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return id;
     }
 
+    // Phương thức này có thể không cần nếu bạn chỉ hiển thị danh sách, nhưng vẫn giữ nếu có trường hợp cụ thể.
     public Cursor getLeaveRequest(long id) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.query(TABLE_LEAVE_REQUESTS,
@@ -99,22 +102,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
-    public List<String[]> getAllLeaveRequests() {
-        List<String[]> leaveRequests = new ArrayList<>();
-        String selectQuery = "SELECT * FROM " + TABLE_LEAVE_REQUESTS;
+    // Phương thức đã sửa để trả về List<LeaveRequest>
+    public List<LeaveRequest> getAllLeaveRequests() {
+        List<LeaveRequest> leaveRequests = new ArrayList<>();
+        String selectQuery = "SELECT * FROM " + TABLE_LEAVE_REQUESTS + " ORDER BY " + COL_LR_ID + " DESC"; // Sắp xếp giảm dần theo ID
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
 
         if (cursor.moveToFirst()) {
             do {
-                String[] request = new String[7]; // ID, FullName, LeaveDate, Position, Department, Email, Reason
-                request[0] = String.valueOf(cursor.getInt(cursor.getColumnIndexOrThrow(COL_LR_ID)));
-                request[1] = cursor.getString(cursor.getColumnIndexOrThrow(COL_LR_FULL_NAME));
-                request[2] = cursor.getString(cursor.getColumnIndexOrThrow(COL_LR_LEAVE_DATE));
-                request[3] = cursor.getString(cursor.getColumnIndexOrThrow(COL_LR_POSITION));
-                request[4] = cursor.getString(cursor.getColumnIndexOrThrow(COL_LR_DEPARTMENT));
-                request[5] = cursor.getString(cursor.getColumnIndexOrThrow(COL_LR_EMAIL));
-                request[6] = cursor.getString(cursor.getColumnIndexOrThrow(COL_LR_REASON));
+                int id = cursor.getInt(cursor.getColumnIndexOrThrow(COL_LR_ID));
+                String fullName = cursor.getString(cursor.getColumnIndexOrThrow(COL_LR_FULL_NAME));
+                String leaveDate = cursor.getString(cursor.getColumnIndexOrThrow(COL_LR_LEAVE_DATE));
+                String position = cursor.getString(cursor.getColumnIndexOrThrow(COL_LR_POSITION));
+                String department = cursor.getString(cursor.getColumnIndexOrThrow(COL_LR_DEPARTMENT));
+                String email = cursor.getString(cursor.getColumnIndexOrThrow(COL_LR_EMAIL));
+                String reason = cursor.getString(cursor.getColumnIndexOrThrow(COL_LR_REASON));
+
+                LeaveRequest request = new LeaveRequest(id, fullName, leaveDate, position, department, email, reason);
                 leaveRequests.add(request);
             } while (cursor.moveToNext());
         }
@@ -170,4 +175,3 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return schedule;
     }
 }
-
