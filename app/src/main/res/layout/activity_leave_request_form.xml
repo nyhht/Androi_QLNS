@@ -6,35 +6,38 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#CCE8FF"
-    tools:context=".ui.LeaveRequestFormActivity"> <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="?attr/actionBarSize"
-    android:background="#6797F4"
-    android:gravity="center_vertical"
-    android:paddingStart="16dp"
-    android:paddingEnd="16dp">
+    tools:context=".ui.LeaveRequestFormActivity">
 
-    <ImageView
-        android:id="@+id/btn_back"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:src="@drawable/ic_arrow_back"
-        android:contentDescription="Quay lại"
-        app:tint="@android:color/white" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#6797F4"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
 
-    <TextView
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Xin nghỉ phép" android:textColor="@android:color/white"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:gravity="center" />
+        <ImageView
+            android:id="@+id/btn_back"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_arrow_back"
+            android:contentDescription="Quay lại"
+            app:tint="@android:color/white" />
 
-    <Space
-        android:layout_width="24dp"
-        android:layout_height="24dp" />
-</LinearLayout>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Xin nghỉ phép"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:gravity="center" />
+
+        <Space
+            android:layout_width="24dp"
+            android:layout_height="24dp" />
+    </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -57,8 +60,7 @@
                 android:layout_marginBottom="4dp" />
 
             <EditText
-                android:id="@+id/et_full_name"
-                android:layout_width="match_parent"
+                android:id="@+id/etFullName" android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/rounded_edittext_background"
                 android:padding="12dp"
@@ -86,27 +88,29 @@
                 android:layout_marginBottom="16dp">
 
                 <EditText
-                    android:id="@+id/et_leave_date"
-                    android:layout_width="0dp"
+                    android:id="@+id/etLeaveDate" android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="12dp"
                     android:textSize="16sp"
                     android:textColor="@android:color/black"
                     android:hint="dd/mm/yyyy"
-                    android:focusable="false" android:inputType="date"
-                    android:background="@android:color/transparent" /> <ImageView
-                android:id="@+id/iv_calendar_icon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_calendar" android:layout_gravity="center_vertical"
-                android:padding="4dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:contentDescription="Chọn ngày" />
+                    android:focusable="false"
+                    android:inputType="date"
+                    android:background="@android:color/transparent" />
+
+                <ImageView
+                    android:id="@+id/iv_calendar_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_calendar"
+                    android:layout_gravity="center_vertical"
+                    android:padding="4dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:contentDescription="Chọn ngày" />
 
             </LinearLayout>
-
 
             <TextView
                 android:layout_width="wrap_content"
@@ -118,8 +122,7 @@
                 android:layout_marginBottom="4dp" />
 
             <EditText
-                android:id="@+id/et_position"
-                android:layout_width="match_parent"
+                android:id="@+id/etPosition" android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/rounded_edittext_background"
                 android:padding="12dp"
@@ -139,8 +142,7 @@
                 android:layout_marginBottom="4dp" />
 
             <EditText
-                android:id="@+id/et_department"
-                android:layout_width="match_parent"
+                android:id="@+id/etDepartment" android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/rounded_edittext_background"
                 android:padding="12dp"
@@ -160,8 +162,7 @@
                 android:layout_marginBottom="4dp" />
 
             <EditText
-                android:id="@+id/et_email"
-                android:layout_width="match_parent"
+                android:id="@+id/etEmail" android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/rounded_edittext_background"
                 android:padding="12dp"
@@ -181,8 +182,7 @@
                 android:layout_marginBottom="4dp" />
 
             <EditText
-                android:id="@+id/et_reason"
-                android:layout_width="match_parent"
+                android:id="@+id/etReason" android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/rounded_edittext_background"
                 android:padding="12dp"
@@ -205,13 +205,13 @@
         android:padding="16dp">
 
         <Button
-            android:id="@+id/btn_add"
-            android:layout_width="0dp"
+            android:id="@+id/btnSubmitRequest" android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Thêm"
             android:textColor="@android:color/white"
-            android:backgroundTint="#FF6347" android:layout_marginEnd="8dp" />
+            android:backgroundTint="#FF6347"
+            android:layout_marginEnd="8dp" />
 
         <Button
             android:id="@+id/btn_cancel"

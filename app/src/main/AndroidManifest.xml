@@ -18,17 +18,18 @@
             android:exported="false"> </activity>
 
         <activity
-            android:name="vn.edu.tlu.cse.ht3.nguyenyenhieu.androi_qlns.ui.WorkScheduleActivity"
+            android:name="vn.edu.tlu.cse.ht3.nguyenyenhieu.androi_qlns.ui.LeaveHistoryActivity"
             android:exported="false">
         </activity>
 
         <activity
-            android:name="vn.edu.tlu.cse.ht3.nguyenyenhieu.androi_qlns.ui.LeaveHistoryActivity"
-            android:exported="true"> <intent-filter>
+        android:name="vn.edu.tlu.cse.ht3.nguyenyenhieu.androi_qlns.ui.WorkScheduleActivity"
+        android:exported="true">
+        <intent-filter>
             <action android:name="android.intent.action.MAIN" />
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
-        </activity>
+    </activity>
 
     </application>
 </manifest>

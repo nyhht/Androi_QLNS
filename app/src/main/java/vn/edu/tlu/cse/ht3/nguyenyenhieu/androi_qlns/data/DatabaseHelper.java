@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import java.util.ArrayList;
 import java.util.List;
 
-import vn.edu.tlu.cse.ht3.nguyenyenhieu.androi_qlns.models.LeaveRequest; // Thêm import này
+import vn.edu.tlu.cse.ht3.nguyenyenhieu.androi_qlns.models.LeaveRequest;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
@@ -88,7 +88,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return id;
     }
 
-    // Phương thức này có thể không cần nếu bạn chỉ hiển thị danh sách, nhưng vẫn giữ nếu có trường hợp cụ thể.
     public Cursor getLeaveRequest(long id) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.query(TABLE_LEAVE_REQUESTS,
@@ -102,10 +101,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
-    // Phương thức đã sửa để trả về List<LeaveRequest>
     public List<LeaveRequest> getAllLeaveRequests() {
         List<LeaveRequest> leaveRequests = new ArrayList<>();
-        String selectQuery = "SELECT * FROM " + TABLE_LEAVE_REQUESTS + " ORDER BY " + COL_LR_ID + " DESC"; // Sắp xếp giảm dần theo ID
+        String selectQuery = "SELECT * FROM " + TABLE_LEAVE_REQUESTS;
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
 
@@ -119,8 +117,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 String email = cursor.getString(cursor.getColumnIndexOrThrow(COL_LR_EMAIL));
                 String reason = cursor.getString(cursor.getColumnIndexOrThrow(COL_LR_REASON));
 
-                LeaveRequest request = new LeaveRequest(id, fullName, leaveDate, position, department, email, reason);
-                leaveRequests.add(request);
+                // Tạo đối tượng LeaveRequest từ dữ liệu.
+                // Bạn cần một constructor phù hợp trong lớp LeaveRequest.
+                LeaveRequest request = new LeaveRequest(fullName, leaveDate, position, department, email, reason);
+                request.setId(id); // Nếu có setId() trong LeaveRequest
+
+                // Hoặc nếu bạn có constructor đầy đủ:
+                // LeaveRequest request = new LeaveRequest(id, fullName, leaveDate, position, department, email, reason);
+
+                leaveRequests.add(request); // Thêm đối tượng vào List
             } while (cursor.moveToNext());
         }
         cursor.close();
