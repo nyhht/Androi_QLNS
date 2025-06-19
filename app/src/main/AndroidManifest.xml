@@ -15,7 +15,11 @@
 
         <activity
             android:name="vn.edu.tlu.cse.ht3.nguyenyenhieu.androi_qlns.ui.LeaveRequestFormActivity"
-            android:exported="false"> </activity>
+            android:exported="true"><intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
 
         <activity
             android:name="vn.edu.tlu.cse.ht3.nguyenyenhieu.androi_qlns.ui.LeaveHistoryActivity"
@@ -24,11 +28,7 @@
 
         <activity
         android:name="vn.edu.tlu.cse.ht3.nguyenyenhieu.androi_qlns.ui.WorkScheduleActivity"
-        android:exported="true">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+        android:exported="false">
     </activity>
 
     </application>

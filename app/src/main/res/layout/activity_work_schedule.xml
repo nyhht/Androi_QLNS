@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#CCE8FF"
+    android:fitsSystemWindows="true"
     tools:context=".ui.WorkScheduleActivity">
 
     <LinearLayout

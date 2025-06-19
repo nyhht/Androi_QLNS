@@ -5,50 +5,51 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#CCE8FF"
-    tools:context=".ui.LeaveRequestFormActivity">
+    android:background="#F5F5F5"
+    android:fitsSystemWindows="true" tools:context=".ui.LeaveRequestFormActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="#6797F4"
+        android:background="@color/purple_500"
         android:gravity="center_vertical"
+        android:orientation="horizontal"
         android:paddingStart="16dp"
         android:paddingEnd="16dp">
 
         <ImageView
-            android:id="@+id/btn_back"
-            android:layout_width="24dp"
+            android:id="@+id/btn_back_form" android:layout_width="24dp"
             android:layout_height="24dp"
             android:src="@drawable/ic_arrow_back"
-            android:contentDescription="Quay lại"
-            app:tint="@android:color/white" />
+            android:contentDescription="Back"
+            app:tint="@android:color/white"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackgroundBorderless" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Xin nghỉ phép"
+            android:textAlignment="center"
             android:textColor="@android:color/white"
             android:textSize="20sp"
-            android:textStyle="bold"
-            android:gravity="center" />
+            android:textStyle="bold" />
 
-        <Space
+        <View
             android:layout_width="24dp"
             android:layout_height="24dp" />
     </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
-
+        android:layout_height="match_parent">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="24dp">
+            android:padding="16dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -56,19 +57,16 @@
                 android:text="Họ tên"
                 android:textColor="@android:color/black"
                 android:textSize="16sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="4dp" />
-
+                android:textStyle="bold"/>
             <EditText
                 android:id="@+id/etFullName" android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/rounded_edittext_background"
-                android:padding="12dp"
-                android:textSize="16sp"
-                android:textColor="@android:color/black"
-                android:layout_marginBottom="16dp"
                 android:hint="Nhập họ tên"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:padding="12dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/rounded_edittext_background" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -76,41 +74,15 @@
                 android:text="Ngày phép"
                 android:textColor="@android:color/black"
                 android:textSize="16sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="4dp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
+                android:textStyle="bold"/>
+            <EditText
+                android:id="@+id/etLeaveDate" android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:background="@drawable/rounded_edittext_background"
-                android:paddingEnd="12dp"
-                android:layout_marginBottom="16dp">
-
-                <EditText
-                    android:id="@+id/etLeaveDate" android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:padding="12dp"
-                    android:textSize="16sp"
-                    android:textColor="@android:color/black"
-                    android:hint="dd/mm/yyyy"
-                    android:focusable="false"
-                    android:inputType="date"
-                    android:background="@android:color/transparent" />
-
-                <ImageView
-                    android:id="@+id/iv_calendar_icon"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_calendar"
-                    android:layout_gravity="center_vertical"
-                    android:padding="4dp"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:contentDescription="Chọn ngày" />
-
-            </LinearLayout>
+                android:hint="dd/mm/yyyy"
+                android:inputType="none"         android:focusable="false"       android:clickable="true"        android:drawableEnd="@drawable/ic_calendar" android:padding="12dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/rounded_edittext_background" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -118,19 +90,17 @@
                 android:text="Chức vụ"
                 android:textColor="@android:color/black"
                 android:textSize="16sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="4dp" />
-
+                android:textStyle="bold"/>
             <EditText
-                android:id="@+id/etPosition" android:layout_width="match_parent"
+                android:id="@+id/etPosition"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/rounded_edittext_background"
-                android:padding="12dp"
-                android:textSize="16sp"
-                android:textColor="@android:color/black"
-                android:layout_marginBottom="16dp"
                 android:hint="Nhập chức vụ"
-                android:inputType="text" />
+                android:inputType="text"
+                android:padding="12dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/rounded_edittext_background" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -138,19 +108,17 @@
                 android:text="Phòng ban"
                 android:textColor="@android:color/black"
                 android:textSize="16sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="4dp" />
-
+                android:textStyle="bold"/>
             <EditText
-                android:id="@+id/etDepartment" android:layout_width="match_parent"
+                android:id="@+id/etDepartment"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/rounded_edittext_background"
-                android:padding="12dp"
-                android:textSize="16sp"
-                android:textColor="@android:color/black"
-                android:layout_marginBottom="16dp"
                 android:hint="Nhập phòng ban"
-                android:inputType="text" />
+                android:inputType="text"
+                android:padding="12dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/rounded_edittext_background" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -158,19 +126,17 @@
                 android:text="Email"
                 android:textColor="@android:color/black"
                 android:textSize="16sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="4dp" />
-
+                android:textStyle="bold"/>
             <EditText
-                android:id="@+id/etEmail" android:layout_width="match_parent"
+                android:id="@+id/etEmail"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/rounded_edittext_background"
-                android:padding="12dp"
-                android:textSize="16sp"
-                android:textColor="@android:color/black"
-                android:layout_marginBottom="16dp"
                 android:hint="Nhập email"
-                android:inputType="textEmailAddress" />
+                android:inputType="textEmailAddress"
+                android:padding="12dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/rounded_edittext_background" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -178,50 +144,45 @@
                 android:text="Lý do"
                 android:textColor="@android:color/black"
                 android:textSize="16sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="4dp" />
-
+                android:textStyle="bold"/>
             <EditText
-                android:id="@+id/etReason" android:layout_width="match_parent"
+                android:id="@+id/etReason"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/rounded_edittext_background"
-                android:padding="12dp"
-                android:textSize="16sp"
-                android:textColor="@android:color/black"
-                android:layout_marginBottom="16dp"
-                android:hint="Nhập lý do nghỉ phép"
+                android:hint="Lý do nghỉ phép"
                 android:inputType="textMultiLine"
-                android:minLines="3"
-                android:gravity="top" />
+                android:lines="4"
+                android:gravity="top"
+                android:padding="12dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/rounded_edittext_background" />
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="24dp"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/btnSubmitRequest"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="THÊM"
+                    android:textColor="@android:color/white"
+                    android:backgroundTint="#FF6347"
+                    android:layout_marginEnd="8dp" />
+
+                <Button
+                    android:id="@+id/btn_cancel_leave_request" android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="HỦY"
+                    android:textColor="@android:color/black"
+                    android:backgroundTint="@android:color/white"
+                    android:layout_marginStart="8dp" /> </LinearLayout>
         </LinearLayout>
     </ScrollView>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:padding="16dp">
-
-        <Button
-            android:id="@+id/btnSubmitRequest" android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Thêm"
-            android:textColor="@android:color/white"
-            android:backgroundTint="#FF6347"
-            android:layout_marginEnd="8dp" />
-
-        <Button
-            android:id="@+id/btn_cancel"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Hủy"
-            android:textColor="@android:color/black"
-            android:backgroundTint="@android:color/white"
-            android:layout_marginStart="8dp" />
-    </LinearLayout>
-
 </LinearLayout>
