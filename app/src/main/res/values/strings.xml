@@ -1,3 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Androi_QLNS</string>
+    <string name="app_name">PayrollApp</string>
+    <string-array name="months_array">
+        <item>September 2025</item>
+        <item>October 2025</item>
+        <item>November 2025</item>
+    </string-array>
+    <string-array name="departments_array">
+        <item>Design</item>
+        <item>Development</item>
+        <item>Marketing</item>
+        <item>HR</item>
+    </string-array>
 </resources>
