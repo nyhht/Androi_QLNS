@@ -1,4 +1,4 @@
-package vn.edu.tlu.cse.ht3.nguyenyenhieu.androi_qlns;
+package vn.edu.tlu.cse.ht3.nguyenyenhieu.androi_qlns.activities;
 
 import android.os.Bundle;
 
@@ -7,6 +7,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import vn.edu.tlu.cse.ht3.nguyenyenhieu.androi_qlns.R;
 
 public class MainActivity extends AppCompatActivity {
 
