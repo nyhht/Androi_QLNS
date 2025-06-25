@@ -1,3 +1,133 @@
 <resources>
-    <string name="app_name">Androi_QLNS</string>
+    <!-- General -->
+    <string name="app_name">Quản lý nhân sự</string>
+    <string name="back">Trở lại</string>
+    <string name="add">Thêm</string>
+    <string name="view">Xem</string>
+    <string name="delete">Xóa</string>
+
+    <!-- Danh sách -->
+    <string name="employee_list">Danh sách nhân viên</string>
+    <string name="employee_list_description">Danh sách các nhân viên hiện có</string>
+    <string name="app_name_pay">PayrollApp</string>
+    <string-array name="months_array">
+        <item>September 2025</item>
+        <item>October 2025</item>
+        <item>November 2025</item>
+    </string-array>
+    <string-array name="departments_array">
+        <item>Design</item>
+        <item>Development</item>
+        <item>Marketing</item>
+        <item>HR</item>
+    </string-array>
+    <!-- Chi tiết nhân viên -->
+
+    <string name="role_employee">Nhân viên</string>
+    <string name="role_manager">Quản lý</string>
+
+    <string name="employee_detail">Thông tin chi tiết</string>
+    <string name="employee_name">Tên nhân viên</string>
+    <string name="employee_position">Chức vụ</string>
+    <string name="employee_email">Email</string>
+    <string name="employee_phone">Số điện thoại</string>
+    <string name="employee_birth">Ngày sinh"</string>
+    <string name="employee_role">Vai trò</string>
+    <string name="employee_add_title">Thêm nhân viên</string>
+    <string name="avatar">Avatar</string>
+    <string name="user_icon">Ảnh nhân viên</string>
+
+
+    <!-- Hint -->
+    <string name="hint_name">Nhập họ tên</string>
+    <string name="hint_birth">Nhập ngày sinh</string>
+    <string name="hint_password">Nhập mật khẩu</string>
+    <string name="user">Người dùng</string>
+    <string name="employee_info">Thông tin nhân viên</string>
+    <string name="birth_date">Ngày sinh</string>
+    <string name="phone">SDT</string>
+
+
+    <!-- Labels -->
+    <string name="department_title">Phòng ban</string>
+    <string name="label_department_name">Tên phòng ban</string>
+    <string name="label_description">Mô tả</string>
+    <string name="label_manager">Trưởng phòng</string>
+    <string name="label_employee_count">Số lượng nhân viên</string>
+
+    <!-- Hint -->
+    <string name="hint_department_name">Nhập tên phòng ban</string>
+    <string name="hint_description">Nhập mô tả</string>
+    <string name="hint_manager">Nhập tên trưởng phòng</string>
+    <string name="hint_employee_count">Nhập số lượng</string>
+
+    <!-- Button -->
+    <string name="save">Lưu</string>
+
+    <!-- Description -->
+    <string name="back_description">Trở lại</string>
+    <string name="hint_full_name">Nhập họ tên</string>
+    <string name="hint_birth_date">Nhập ngày sinh</string>
+    <string name="hint_phone">Nhập số điện thoại</string>
+    <string name="hint_position">Nhập chức vụ</string>
+    <string name="hint_email">Nhập email</string>
+    <string name="hint_department">Nhập phòng ban</string>
+
+    <!-- Detail / Update form -->
+    <string name="employee_fullname">Họ và tên</string>
+    <string name="enter_fullname">Nhập họ và tên</string>
+    <string name="employee_birthdate">Ngày sinh</string>
+    <string name="enter_birthdate">Nhập ngày sinh</string>
+    <string name="enter_phone">Nhập số điện thoại</string>
+    <string name="enter_email">Nhập email</string>
+    <string name="enter_role">Nhập vai trò</string>
+
+    <string name="leave_detail">Chi tiết đơn nghỉ phép</string>
+    <string name="name">Tên</string>
+    <string name="date">Ngày</string>
+    <string name="position">Chức vụ</string>
+    <string name="department">Phòng ban</string>
+    <string name="email">Email</string>
+    <string name="reason">Lý do</string>
+
+    <string name="leave_request_title">Xin nghỉ phép</string>
+    <string name="leave_date">Ngày phép</string>
+    <string name="cancel">Hủy</string>
+    <string name="full_name">Họ tên</string>>
+    <string name="calendar_icon">Chọn ngày</string>
+    <string name="date_format">dd/mm/yyyy</string>
+    <string name="leave_date_hint">dd/mm/yyyy</string>
+    <string name="submit">Thêm</string>
+
+    <string name="salary_table">Bảng lương</string>
+    <string name="statistics">Thống kê</string>
+    <string name="total_employees">Tổng nhân viên</string>
+    <string name="total_departments">Tổng phòng ban</string>
+    <string name="total_salary">Tổng lương</string>
+
+
+    <string name="salary_title">Bảng lương</string>
+    <string name="month">Tháng</string>
+    <string name="header_name_position">Tên/Chức vụ</string>
+    <string name="header_days_off">Nghỉ</string>
+    <string name="header_basic_salary">Lương cơ bản</string>
+    <string name="header_total_salary">Tổng lương</string>
+    <string name="salary_list_description">Danh sách bảng lương nhân viên</string>
+
+    <!-- Titles -->
+    <string name="statistics_title">Thống kê</string>
+
+    <!-- Table headers -->
+    <string name="header_department">Phòng ban</string>
+    <string name="header_num_employees">Nhân viên</string>
+    <string name="icon_info">Icon tổng nhân viên</string>
+    <string name="icon_department">Icon tổng phòng ban</string>
+    <string name="icon_money">Icon tổng lương</string>
+    <string name="statistics_list">Danh sách thống kê</string>
+    <string name="header_employees">Nhân viên</string>
+    <string name="employees">Nhân viên</string>
+    <string name="base_salary">Lương cơ bản</string>
+    <string name="total">Tổng lương</string>
+    <string name="zero">0</string>
+
 </resources>

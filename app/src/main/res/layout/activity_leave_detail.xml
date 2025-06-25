@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/holo_blue_light"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Tiêu đề -->
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Chi tiết nghỉ phép"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:paddingBottom="16dp"
+            android:textColor="#000000" />
+
+        <!-- Họ tên -->
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:labelFor="@id/etName"
+            android:text="Họ tên"
+            style="@style/EmployeeInfoText" />
+
+        <EditText
+            android:id="@+id/etName"
+            style="@style/EditTextItemStyle"
+            android:enabled="false"
+            android:hint="Họ tên"
+            android:inputType="textPersonName"
+            android:autofillHints="name" />
+
+        <!-- Ngày -->
+        <TextView
+            android:id="@+id/tvDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:labelFor="@id/etDate"
+            android:text="@string/date"
+            style="@style/EmployeeInfoText" />
+
+        <EditText
+            android:id="@+id/etDate"
+            style="@style/EditTextItemStyle"
+            android:enabled="false"
+            android:hint="@string/date"
+            android:inputType="date"
+            android:autofillHints="date" />
+
+        <!-- Chức vụ -->
+        <TextView
+            android:id="@+id/tvPosition"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:labelFor="@id/etPosition"
+            android:text="@string/position"
+            style="@style/EmployeeInfoText" />
+
+        <EditText
+            android:id="@+id/etPosition"
+            style="@style/EditTextItemStyle"
+            android:enabled="false"
+            android:hint="@string/position"
+            android:inputType="text"
+            android:autofillHints="username" />
+
+        <!-- Phòng ban -->
+        <TextView
+            android:id="@+id/tvDepartment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:labelFor="@id/etDepartment"
+            android:text="@string/department"
+            style="@style/EmployeeInfoText" />
+
+        <EditText
+            android:id="@+id/etDepartment"
+            style="@style/EditTextItemStyle"
+            android:enabled="false"
+            android:hint="@string/department"
+            android:inputType="text"
+            android:autofillHints="organization" />
+
+        <!-- Email -->
+        <TextView
+            android:id="@+id/tvEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:labelFor="@id/etEmail"
+            android:text="@string/email"
+            style="@style/EmployeeInfoText" />
+
+        <EditText
+            android:id="@+id/etEmail"
+            style="@style/EditTextItemStyle"
+            android:enabled="false"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
+            android:autofillHints="emailAddress" />
+
+        <!-- Lý do -->
+        <TextView
+            android:id="@+id/tvReason"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:labelFor="@id/etReason"
+            android:text="@string/reason"
+            style="@style/EmployeeInfoText" />
+
+        <EditText
+            android:id="@+id/etReason"
+            style="@style/EditTextItemStyle"
+            android:enabled="false"
+            android:hint="@string/reason"
+            android:minLines="3"
+            android:inputType="textMultiLine"
+            android:autofillHints="text" />
+    </LinearLayout>
+</ScrollView>
