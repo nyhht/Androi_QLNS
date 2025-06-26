@@ -1,9 +1,11 @@
 package vn.edu.tlu.cse.ht3.nguyenyenhieu.androi_qlns.adapters;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -13,22 +15,23 @@ import vn.edu.tlu.cse.ht3.nguyenyenhieu.androi_qlns.R;
 import vn.edu.tlu.cse.ht3.nguyenyenhieu.androi_qlns.models.LeaveRequest;
 
 public class LeaveRequestAdapter extends RecyclerView.Adapter<LeaveRequestAdapter.LeaveRequestViewHolder> {
-
+    private Context context;
     private List<LeaveRequest> leaveRequestList;
 
-    public LeaveRequestAdapter(List<LeaveRequest> leaveRequestList) {
+    public LeaveRequestAdapter(Context context, List<LeaveRequest> leaveRequestList) {
+        this.context = context;
         this.leaveRequestList = leaveRequestList;
     }
 
-    public void setLeaveRequestList(List<LeaveRequest> newLeaveRequestList) {
-        this.leaveRequestList = newLeaveRequestList;
-        notifyDataSetChanged(); // Thông báo cho adapter rằng dữ liệu đã thay đổi
+    public void updateList(List<LeaveRequest> newList) {
+        this.leaveRequestList = newList;
+        notifyDataSetChanged();
     }
 
     @NonNull
     @Override
     public LeaveRequestViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_leave_request, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.item_leave_request, parent, false);
         return new LeaveRequestViewHolder(view);
     }
 
@@ -38,7 +41,9 @@ public class LeaveRequestAdapter extends RecyclerView.Adapter<LeaveRequestAdapte
         holder.tvLeaveDate.setText("Ngày nghỉ: " + leaveRequest.getLeaveDate());
         holder.tvFullName.setText("Họ tên: " + leaveRequest.getFullName());
         holder.tvReasonSummary.setText("Lý do: " + leaveRequest.getReason());
-        // Có thể thêm OnClickListener nếu bạn muốn click vào mục để xem chi tiết hơn
+
+        // Optional: Click để mở chi tiết đơn
+        // holder.itemView.setOnClickListener(...)
     }
 
     @Override
@@ -47,9 +52,7 @@ public class LeaveRequestAdapter extends RecyclerView.Adapter<LeaveRequestAdapte
     }
 
     public static class LeaveRequestViewHolder extends RecyclerView.ViewHolder {
-        TextView tvLeaveDate;
-        TextView tvFullName;
-        TextView tvReasonSummary;
+        TextView tvLeaveDate, tvFullName, tvReasonSummary;
 
         public LeaveRequestViewHolder(@NonNull View itemView) {
             super(itemView);

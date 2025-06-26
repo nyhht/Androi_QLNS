@@ -42,4 +42,13 @@ public class LeaveRequest {
 
     public String getReason() { return reason; }
     public void setReason(String reason) { this.reason = reason; }
+
+    // Hàm bổ sung cho adapter
+    public String getLeaveDate() {
+        return getDate();
+    }
+
+    public String getFullName() {
+        return getName();
+    }
 }

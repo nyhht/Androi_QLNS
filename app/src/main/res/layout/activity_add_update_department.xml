@@ -19,7 +19,7 @@
             android:id="@+id/btnBack"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:src="@drawable/trolai"
+            android:src="@drawable/ic_arrow_back"
             android:layout_marginStart="16dp"
             android:contentDescription="Quay lại"
             app:layout_constraintStart_toStartOf="parent"
@@ -71,7 +71,7 @@
             <EditText
                 android:id="@+id/edtName"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
                 android:hint="Tên phòng ban"
                 android:background="@drawable/rounded_edittext_background"
                 android:paddingHorizontal="16dp"
@@ -91,7 +91,7 @@
             <EditText
                 android:id="@+id/edtLeader"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
                 android:hint="Trưởng phòng"
                 android:background="@drawable/rounded_edittext_background"
                 android:paddingHorizontal="16dp"
@@ -100,7 +100,7 @@
             <EditText
                 android:id="@+id/edtNumber"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
                 android:hint="Số lượng nhân viên"
                 android:background="@drawable/rounded_edittext_background"
                 android:inputType="number"

@@ -2,15 +2,11 @@ package vn.edu.tlu.cse.ht3.nguyenyenhieu.androi_qlns.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ImageView;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import java.util.List;
-
 import vn.edu.tlu.cse.ht3.nguyenyenhieu.androi_qlns.R;
 import vn.edu.tlu.cse.ht3.nguyenyenhieu.androi_qlns.adapters.DepartmentAdapter;
 import vn.edu.tlu.cse.ht3.nguyenyenhieu.androi_qlns.database.DepartmentDAO;
@@ -34,14 +30,14 @@ public class DepartmentListActivity extends AppCompatActivity {
 
         departmentDAO = new DepartmentDAO(this);
 
-        loadDepartments();
-
         btnBack.setOnClickListener(v -> finish());
 
         btnAdd.setOnClickListener(v -> {
             Intent intent = new Intent(this, AddUpdateDepartmentActivity.class);
             startActivity(intent);
         });
+
+        loadDepartments();
     }
 
     private void loadDepartments() {
@@ -53,7 +49,7 @@ public class DepartmentListActivity extends AppCompatActivity {
 
     private void openDepartmentDetail(Department department) {
         Intent intent = new Intent(this, DepartmentDetailActivity.class);
-        intent.putExtra("department", department);
+        intent.putExtra("department", department); // Truyền Serializable object
         startActivity(intent);
     }
 

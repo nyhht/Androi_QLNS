@@ -8,6 +8,7 @@
 
     <!-- Danh sách -->
     <string name="employee_list">Danh sách nhân viên</string>
+
     <string name="employee_list_description">Danh sách các nhân viên hiện có</string>
     <string name="app_name_pay">PayrollApp</string>
     <string-array name="months_array">
@@ -38,7 +39,8 @@
     <string name="user_icon">Ảnh nhân viên</string>
 
 
-    <!-- Hint -->
+
+
     <string name="hint_name">Nhập họ tên</string>
     <string name="hint_birth">Nhập ngày sinh</string>
     <string name="hint_password">Nhập mật khẩu</string>
@@ -104,6 +106,14 @@
     <string name="total_employees">Tổng nhân viên</string>
     <string name="total_departments">Tổng phòng ban</string>
     <string name="total_salary">Tổng lương</string>
+    <string name="leave_detail_title">Chi tiết nghỉ phép</string>
+    <string name="check_in">Check In</string>
+    <string name="check_out">Check Out</string>
+    <string name="current_time">09:45 AM</string>
+    <string name="recycler_timekeeping">Danh sách giờ làm</string>
+    <string name="employee_list_desc">Danh sách nhân viên</string>
+
+    <string name="add_employee">Thêm nhân viên</string>
 
 
     <string name="salary_title">Bảng lương</string>

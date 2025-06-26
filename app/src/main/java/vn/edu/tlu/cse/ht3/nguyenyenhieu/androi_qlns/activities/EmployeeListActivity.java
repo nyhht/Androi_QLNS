@@ -2,9 +2,10 @@ package vn.edu.tlu.cse.ht3.nguyenyenhieu.androi_qlns.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,32 +19,65 @@ import vn.edu.tlu.cse.ht3.nguyenyenhieu.androi_qlns.models.Employee;
 
 public class EmployeeListActivity extends AppCompatActivity {
 
-    private RecyclerView rvEmployees;
+    private RecyclerView recyclerView;
     private ImageButton btnBack, btnAdd;
-    private EmployeeDAO employeeDAO;
-    private EmployeeAdapter adapter;
+    private EmployeeDAO dao;
+
+    private static final int REQUEST_ADD_UPDATE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_employee_list);
 
-        rvEmployees = findViewById(R.id.rvEmployees);
+        recyclerView = findViewById(R.id.recyclerViewEmployees);
         btnBack = findViewById(R.id.btnBack);
         btnAdd = findViewById(R.id.btnAdd);
 
-        employeeDAO = new EmployeeDAO(this);
-        List<Employee> employeeList = employeeDAO.getAllEmployees();
-
-        adapter = new EmployeeAdapter(this, employeeList);
-        rvEmployees.setLayoutManager(new LinearLayoutManager(this));
-        rvEmployees.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        dao = new EmployeeDAO(this);
 
         btnBack.setOnClickListener(v -> finish());
 
         btnAdd.setOnClickListener(v -> {
-            Intent intent = new Intent(this, AddUpdateEmployeeActivity.class);
-            startActivity(intent);
+            Intent intent = new Intent(EmployeeListActivity.this, AddUpdateEmployeeActivity.class);
+            startActivityForResult(intent, REQUEST_ADD_UPDATE);
         });
+
+        loadEmployeeList();
+    }
+
+    private void loadEmployeeList() {
+        List<Employee> employeeList = dao.getAllEmployees();
+
+        EmployeeAdapter adapter = new EmployeeAdapter(this, employeeList, new EmployeeAdapter.OnEmployeeActionListener() {
+            @Override
+            public void onDelete(Employee employee) {
+                int rowsDeleted = dao.delete(employee.getId());
+                if (rowsDeleted > 0) {
+                    Toast.makeText(EmployeeListActivity.this, "Đã xóa nhân viên", Toast.LENGTH_SHORT).show();
+                    loadEmployeeList();
+                } else {
+                    Toast.makeText(EmployeeListActivity.this, "Xóa thất bại", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onViewDetail(Employee employee) {
+                Intent intent = new Intent(EmployeeListActivity.this, EmployeeDetailActivity.class);
+                intent.putExtra("employee", employee);
+                startActivity(intent);
+            }
+        });
+
+        recyclerView.setAdapter(adapter);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_ADD_UPDATE && resultCode == RESULT_OK) {
+            loadEmployeeList();
+        }
     }
 }

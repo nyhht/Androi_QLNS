@@ -1,11 +1,10 @@
 package vn.edu.tlu.cse.ht3.nguyenyenhieu.androi_qlns.activities;
 
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -19,48 +18,30 @@ import vn.edu.tlu.cse.ht3.nguyenyenhieu.androi_qlns.models.Salary;
 
 public class SalaryActivity extends AppCompatActivity {
 
-    private Spinner spnMonth, spnDepartment;
     private RecyclerView rvSalary;
     private SalaryAdapter salaryAdapter;
-    private SalaryDAO salaryDAO;
+    private Spinner spnMonth, spnDepartment;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_salary);
 
+        // Gán view
+        rvSalary = findViewById(R.id.rvSalary);
         spnMonth = findViewById(R.id.spnMonth);
         spnDepartment = findViewById(R.id.spnDepartment);
-        rvSalary = findViewById(R.id.rvSalary);
-        salaryDAO = new SalaryDAO(this);
 
-        ArrayAdapter<String> monthAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, salaryDAO.getAllMonths());
-        spnMonth.setAdapter(monthAdapter);
+        // Back button
+        ImageButton btnBack = findViewById(R.id.btnBack);
+        btnBack.setOnClickListener(v -> finish());
 
-        ArrayAdapter<String> departmentAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, salaryDAO.getAllDepartments());
-        spnDepartment.setAdapter(departmentAdapter);
+        // Load dữ liệu (ví dụ tĩnh)
+        SalaryDAO salaryDAO = new SalaryDAO(this);
+        List<Salary> salaries = salaryDAO.calculateSalaries("06/2025", 500000, 22);
 
+        salaryAdapter = new SalaryAdapter(this, salaries);
         rvSalary.setLayoutManager(new LinearLayoutManager(this));
-
-        AdapterView.OnItemSelectedListener listener = new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                loadSalaryData();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {}
-        };
-
-        spnMonth.setOnItemSelectedListener(listener);
-        spnDepartment.setOnItemSelectedListener(listener);
-    }
-
-    private void loadSalaryData() {
-        String selectedMonth = spnMonth.getSelectedItem().toString();
-        String selectedDepartment = spnDepartment.getSelectedItem().toString();
-        List<Salary> salaryList = salaryDAO.getSalaries(selectedMonth, selectedDepartment);
-        salaryAdapter = new SalaryAdapter(salaryList);
         rvSalary.setAdapter(salaryAdapter);
     }
 }

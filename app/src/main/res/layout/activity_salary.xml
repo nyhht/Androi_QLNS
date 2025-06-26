@@ -1,41 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="#B3E5FC"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- Header: Back + Title -->
+    <!-- Header with Back button and Title -->
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:padding="12dp"
         android:gravity="center_vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#81D4FA">
+        android:background="@color/purple_500">
 
         <ImageButton
             android:id="@+id/btnBack"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:padding="22dp"
-            android:background="@android:color/transparent"
-            android:src="@drawable/trolai"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_arrow_back"
+            app:tint="@android:color/white"
             android:contentDescription="@string/back" />
 
         <TextView
-            android:id="@+id/tvTitle"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/salary_title"
-            android:textColor="@android:color/black"
+            android:text="Bảng lương"
+            android:textColor="@android:color/white"
             android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:layout_marginStart="12dp"/>
     </LinearLayout>
 
-    <!-- Filter -->
+    <!-- Bộ lọc -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -65,8 +64,7 @@
             android:spinnerMode="dropdown" />
     </LinearLayout>
 
-    <!-- Table Header -->
-    <!-- Table Header -->
+    <!-- Header bảng lương -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -76,52 +74,37 @@
         android:padding="8dp">
 
         <TextView
-            android:id="@+id/headerName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
-            android:text="@string/header_name_position"
+            android:text="Tên NV"
             android:gravity="center"
             android:textColor="@android:color/black"
             android:textStyle="bold"
             android:textSize="14sp" />
 
         <TextView
-            android:id="@+id/headerOffDays"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/header_days_off"
+            android:text="Bộ phận"
             android:gravity="center"
             android:textColor="@android:color/black"
             android:textStyle="bold"
             android:textSize="14sp" />
 
         <TextView
-            android:id="@+id/headerBasicSalary"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:text="@string/header_basic_salary"
-            android:gravity="center"
-            android:textColor="@android:color/black"
-            android:textStyle="bold"
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/headerTotalSalary"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:text="@string/header_total_salary"
+            android:layout_weight="1.5"
+            android:text="Tổng lương"
             android:gravity="center"
             android:textColor="@android:color/black"
             android:textStyle="bold"
             android:textSize="14sp" />
     </LinearLayout>
 
-
-    <!-- RecyclerView list -->
+    <!-- Danh sách bảng lương -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvSalary"
         android:layout_width="match_parent"
@@ -129,6 +112,5 @@
         android:layout_weight="1"
         android:layout_marginTop="2dp"
         android:padding="4dp"
-        android:contentDescription="@string/salary_list_description"
         android:overScrollMode="never" />
 </LinearLayout>

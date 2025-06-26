@@ -21,7 +21,7 @@ public class EmployeeActivity extends AppCompatActivity {
 
         // Chấm công
         gridEmployeeFunctions.getChildAt(0).setOnClickListener(v ->
-                startActivity(new Intent(this, WorkScheduleActivity.class)));
+                startActivity(new Intent(this, TimekeepingActivity.class)));
 
         // Thông tin nhân viên
         gridEmployeeFunctions.getChildAt(1).setOnClickListener(v ->
